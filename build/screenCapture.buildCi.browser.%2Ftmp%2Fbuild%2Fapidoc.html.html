@@ -146,15 +146,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.recordrtc.toString">
-            function <span class="apidocSignatureSpan">recordrtc.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.recordrtc.writeToDisk">
             function <span class="apidocSignatureSpan">recordrtc.</span>writeToDisk
             <span class="apidocSignatureSpan">(options)</span>
@@ -1545,37 +1536,6 @@ RecordRTC.getFromDisk('audio', function(dataURL) {
 
 
     <h2>
-        <a href="#apidoc.element.recordrtc.toString" id="apidoc.element.recordrtc.toString">
-        function <span class="apidocSignatureSpan">recordrtc.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-reader.readAsDataURL(blob);
-reader.onload = function(event) {
-    callback(event.target.result);
-};
-        }
-
-        function processInWebWorker(_function) {
-var blob = URL.createObjectURL(new Blob([_function.<span class="apidocCodeKeywordSpan">toString</span>(),
-    'this.onmessage =  function (e) {' + _function.name + '(e.data);}'
-], {
-    type: 'application/javascript'
-}));
-
-var worker = new Worker(blob);
-URL.revokeObjectURL(blob);
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
         <a href="#apidoc.element.recordrtc.writeToDisk" id="apidoc.element.recordrtc.writeToDisk">
         function <span class="apidocSignatureSpan">recordrtc.</span>writeToDisk
         <span class="apidocSignatureSpan">(options)</span>
@@ -1857,7 +1817,23 @@ if (typeof indexedDB === 'undefined' || typeof indexedDB.open === 'undefined') {
     <li>description and source-code<pre class="apidocCodePre">onError = function (error) {
     console.error(JSON.stringify(error, null, '\t'));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    this.retryHandler.reset();
+    this.sendFile_();
+  }
+};
+
+MediaUploader.prototype.onContentUploadError_ = function(e) {
+  if (e.target.status &amp;&amp; e.target.status &lt; 500) {
+    this.<span class="apidocCodeKeywordSpan">onError</span>(e.target.response);
+  } else {
+    this.retryHandler.retry(this.resume_.bind(this));
+  }
+};
+
+MediaUploader.prototype.onUploadError_ = function(e) {
+  this.onError(e.target.response); // TODO - Retries for initial upload
+...</pre></li>
     </ul>
 
 
