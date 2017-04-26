@@ -1,6 +1,6 @@
 # npmdoc-recordrtc
 
-#### api documentation for  [recordrtc (v5.4.1)](http://RecordRTC.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-recordrtc.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-recordrtc) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-recordrtc.svg)](https://travis-ci.org/npmdoc/node-npmdoc-recordrtc)
+#### basic api documentation for  [recordrtc (v5.4.1)](http://RecordRTC.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-recordrtc.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-recordrtc) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-recordrtc.svg)](https://travis-ci.org/npmdoc/node-npmdoc-recordrtc)
 
 #### RecordRTC is a server-less (entire client-side) JavaScript library can be used to record WebRTC audio/video media streams. It supports cross-browser audio/video recording.
 
@@ -74,7 +74,8 @@
         "start": "node server.js"
     },
     "tonicExampleFilename": "npm-test.js",
-    "version": "5.4.1"
+    "version": "5.4.1",
+    "bin": {}
 }
 ```
 
